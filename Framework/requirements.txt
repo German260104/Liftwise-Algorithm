@@ -1,0 +1,7 @@
+numpy
+scipy
+pandas
+matplotlib
+label-studio
+label-studio-sdk
+scikit-learn

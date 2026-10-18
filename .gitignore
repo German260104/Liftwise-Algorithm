@@ -1,0 +1,27 @@
+# Sensitive credentials
+KEY.txt
+.env
+.env.*
+
+# Original datasets
+InputCSV/
+manualCSV/
+
+# Trained models
+*.joblib
+
+# macOS files
+.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE files
+.idea/
+.vscode/

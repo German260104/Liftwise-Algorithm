@@ -1,0 +1,143 @@
+{
+  "feature_columns": [
+    "duration_seconds",
+    "acc_std",
+    "gyro_std",
+    "acc_energy",
+    "gyro_energy",
+    "periodicity_score",
+    "dominant_period_seconds"
+  ],
+  "random_forest_parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 300,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "number_of_datasets": 54,
+  "number_of_training_segments": 2631,
+  "class_distribution": {
+    "0": 2422,
+    "1": 209
+  },
+  "preprocessing_parameters": {
+    "fs": 100,
+    "cutoff": 20,
+    "order": 3
+  },
+  "fixed_preprocessing_parameters": {
+    "median_kernel_size": 3,
+    "max_missing_seconds": 10
+  },
+  "ggs_parameters": {
+    "max_breakpoints": 200,
+    "min_segment_size": 100,
+    "candidate_step": 25,
+    "covariance_regularization": 1e-06,
+    "lambda_regularization": 0.001
+  },
+  "ggs_columns": [
+    "acc_x_butter",
+    "acc_y_butter",
+    "acc_z_butter",
+    "gyro_x_butter",
+    "gyro_y_butter",
+    "gyro_z_butter"
+  ],
+  "ground_truth_thresholds": {
+    "exercise_iou_threshold": 0.5,
+    "not_exercise_iou_threshold": 0.1,
+    "min_exercise_coverage": 0.8,
+    "contained_exercise_coverage": 0.95,
+    "max_negative_coverage": 0.1
+  },
+  "exercise_label_values": [
+    "exercise",
+    "exercising",
+    "Übung",
+    1,
+    true
+  ],
+  "sample_interval_convention": "[start, end), prepared CSV sample indices",
+  "model_scope": "Final model refitted on all non-ambiguous rows after evaluation",
+  "ground_truth_column": "label",
+  "dataset_split": {
+    "train_datasets": [
+      "workout_1762697882418_cleaned",
+      "workout_1776324862513_cleaned",
+      "workout_1776325877612_cleaned",
+      "workout_1776941360534_cleaned",
+      "workout_1777038306730_cleaned",
+      "workout_1777039236166_cleaned",
+      "workout_1777039731276_cleaned",
+      "workout_1777040970755_cleaned",
+      "workout_1777044245053_cleaned",
+      "workout_1777044888781_cleaned",
+      "workout_1777047723200_cleaned",
+      "workout_1777084259722_cleaned",
+      "workout_1777086802999_cleaned",
+      "workout_1778087402404_cleaned",
+      "workout_1778087612584_cleaned",
+      "workout_1778089178270_cleaned",
+      "workout_1778090991496_cleaned",
+      "workout_1778093044249_cleaned",
+      "workout_1778094384254_cleaned",
+      "workout_1778095109129_cleaned",
+      "workout_1778095129385_cleaned",
+      "workout_1778095145519_cleaned",
+      "workout_1778131402523_cleaned",
+      "workout_1778132247912_cleaned",
+      "workout_1778170205571_cleaned",
+      "workout_1778170638103_cleaned",
+      "workout_1778172126349_cleaned",
+      "workout_1778172523651_cleaned",
+      "workout_1778172532716_cleaned",
+      "workout_1778172864045_cleaned",
+      "workout_1778174275766_cleaned",
+      "workout_1778174504087_cleaned",
+      "workout_1778177323351_cleaned",
+      "workout_1778177827450_cleaned",
+      "workout_1778214620856_cleaned",
+      "workout_1778251126880_cleaned",
+      "workout_1778251272036_cleaned",
+      "workout_1778254347942_cleaned",
+      "workout_1778254396713_cleaned",
+      "workout_1778256591796_cleaned",
+      "workout_1778259141899_cleaned",
+      "workout_1778260785201_cleaned",
+      "workout_1778299097547_cleaned"
+    ],
+    "test_datasets": [
+      "workout_1776326614305_cleaned",
+      "workout_1776942317573_cleaned",
+      "workout_1777045137366_cleaned",
+      "workout_1777046710574_cleaned",
+      "workout_1777091277940_cleaned",
+      "workout_1778087434361_cleaned",
+      "workout_1778170649534_cleaned",
+      "workout_1778253729611_cleaned",
+      "workout_1778256729162_cleaned",
+      "workout_1778257699533_cleaned",
+      "workout_1778297590253_cleaned"
+    ],
+    "random_state": 42,
+    "test_size": 0.2
+  },
+  "datasets_processed_successfully": 54,
+  "ground_truth_csv_dir": "/Users/germanroberto/Downloads/Label_Algorithmus/labeling_projekt/ground_truth_csvs"
+}

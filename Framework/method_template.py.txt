@@ -1,0 +1,59 @@
+"""Copy this file to method_your_name.py, then replace predict()."""
+
+import csv
+import os
+from pathlib import Path
+
+
+HERE = Path(__file__).resolve().parent
+INPUT_FOLDER = HERE / "InputCSV"
+
+# This must be unique and must end in _output.
+OUTPUT_FOLDER_NAME = "your_unique_method_output"
+OUTPUT_FOLDER = HERE / OUTPUT_FOLDER_NAME
+
+
+def predict(rows):
+    """Return one Boolean per input row: True=exercising, False=pause."""
+    # Replace this example with your method.
+    return [False] * len(rows)
+
+
+def your_method():
+    OUTPUT_FOLDER.mkdir(exist_ok=True)
+    input_csvs = sorted(INPUT_FOLDER.glob("*.csv"))
+    if not input_csvs:
+        raise RuntimeError(f"No CSV files found in {INPUT_FOLDER}")
+
+    for input_path in input_csvs:
+        with input_path.open("r", encoding="utf-8-sig", newline="") as file:
+            sample = file.read(65536)
+            file.seek(0)
+            dialect = csv.Sniffer().sniff(sample, delimiters=",;\t|")
+            reader = csv.DictReader(file, dialect=dialect)
+            rows = list(reader)
+            source_fields = list(reader.fieldnames or [])
+
+        labels = list(predict(rows))
+        if len(labels) != len(rows):
+            raise RuntimeError(
+                f"{input_path.name}: predict() returned {len(labels)} labels "
+                f"for {len(rows)} rows"
+            )
+
+        output_path = OUTPUT_FOLDER / input_path.name
+        partial_path = output_path.with_name(output_path.name + ".partial")
+        fields = [name for name in source_fields if name != "label"] + ["label"]
+        with partial_path.open("w", encoding="utf-8", newline="") as file:
+            writer = csv.DictWriter(
+                file, fieldnames=fields, dialect=dialect, extrasaction="ignore"
+            )
+            writer.writeheader()
+            for row, exercising in zip(rows, labels):
+                row["label"] = "exercising" if exercising else "pause"
+                writer.writerow(row)
+        os.replace(partial_path, output_path)
+
+
+if __name__ == "__main__":
+    your_method()
